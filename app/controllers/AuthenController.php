@@ -28,7 +28,6 @@ class AuthenController extends ControllerBase{
         if($member->active == '1'){
           if($this->security->checkHash($pass, $member->password)){ // ตรวจสอบรหัสด้วย key การเข้ารหัส
             $this->session->set('memberAuthen', $member->id); // กำหนด session
-            //$_SESSION['memberAuthen']=$member-.id;
 			$this->session->set('memberEmail', $member->username);
 					
 			if($rememberMe==1) {
@@ -62,14 +61,12 @@ class AuthenController extends ControllerBase{
       $pass = trim($this->request->getPost('password')); // รับค่าจาก form
       $firstname = trim($this->request->getPost('firstname')); // รับค่าจาก form
       
-      $member= new User();
-      $member->username=$email;
-      $member->password=$this->security->hash($pass);
-      $member->first_name=$firstname;
+      $member = new User();
+      $member -> username=$email;
+      $member -> password=$this->security->hash($pass);
+      $member -> first_name=$firstname;
       $member->save();
-      $this->response->redirect('authen');
-      
-      }
+      $this->response->redirect('authen');      }
   }
   
   public function removeSession(){ // การลบ session
@@ -78,7 +75,7 @@ class AuthenController extends ControllerBase{
   }
     
   public function signOutAction(){
-	  $this->removeSession();//session_unset()
+	  $this->removeSession(); // session_unset()
 	  $this->response->redirect('authen');   
   }
  

@@ -11,7 +11,7 @@ class ControllerBase extends Controller{
       ->collection('styles') // pack ไฟล์ css ที่ต้องการใช้งาน
       ->addCss('https://fonts.googleapis.com/css?family=Kanit')
       ->addCss('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
-	  ->addCss('public/css/freelancer.css');
+	  ->addCss('public/css/agency.css');
 	$this->assets
       ->collection('styleslogin') // pack ไฟล์ css ที่ต้องการใช้งาน
       ->addCss('https://fonts.googleapis.com/css?family=Kanit')

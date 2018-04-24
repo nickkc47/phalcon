@@ -32,16 +32,16 @@ class ProfileController extends ControllerBase {
       $email = trim($this->request->getPost('email')); // รับค่าจาก form     
       $firstname = trim($this->request->getPost('firstname')); // รับค่าจาก form 
 	  $profileObj = User::findFirst($profileId);
-	  //$profileObj = new User(); //insert data
+	  
 	  $profileObj->username=$email;
-	  $profileObj->first_name=$firstname;
+	  $profileObj->first_name = $firstname;
 	  $profileObj->picture=$photoUpdate;
 	  $profileObj->save();
-	 //$profileObj->delete();//delete data
+	 
    } 	 
-		   else
-		   $profileId=$this->session->get('memberAuthen');//=$_SESSION['memberAuthen'];
-		   $profile=user::findFirst($profileId);
-		   $this->view->profile=$profile;
+   else
+   $profileId=$this->session->get('memberAuthen');
+   $profile=user::findFirst($profileId);
+   $this->view->profile=$profile;
   }	
 }
